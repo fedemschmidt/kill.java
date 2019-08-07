@@ -1,8 +1,5 @@
-
-
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Stack;
 
 public class Calculadora{
     private ArrayList<Rutinas> rutinas;
@@ -23,46 +20,41 @@ public class Calculadora{
 
     public void usarRutina (int a){
         for(int i=0; i<rutinas.get(a).getsize(); i++){
-            String aux=getn(a, i);
-            if(stack.empty()) {
-                stack.push(0);
-            }
+            String aux=getnx(i);
             if(aux=="add") add();
             if(aux=="sub") sub();
             if(aux=="mul") mul();
-            if(aux=="push") ingresarStack();
+            if(aux=="push") push();
             if(aux=="write") write();
             if(aux=="read") read();
-        }
+        }        
     }
 
     public void add(){
-        int aux=stack.pop();
-        if(stack.empty()) stack.push(0);
-        stack.push(aux+stack.pop());
+        if(stack.empty())push(0);
+        else push(pop()+pop());
     }
     public void sub(){
-        int aux=stack.pop();
-        if(stack.empty()) stack.push(0);
-        stack.push(aux-stack.pop());
+        if(stack.empty())push(0);
+        else push(pop()-pop());
     }
     public void mul(){
-        int aux=stack.pop();
-        if(stack.empty()) stack.push(0);
-        stack.push(aux*stack.pop());
+        if(stack.empty())push(0);
+        else push(pop()*pop());
     }
-    public void ingresarStack(){
+    public void push(){
         System.out.println("Que valor desea ingresar en el tope del stack?");
         Scanner scan = new Scanner(System.in);
-        stack.push(scan.nextInt());
+        push(scan.nextint());
+        scan.close();
     }
-    public String getn(int a, int i){
-        return rutinas.get(a).getinstruccion(i);
+    public String getnx(int i){
+        return rutinas.get(i).getn(i);
     }
     public void write(){
         System.out.println("Que nombre desea darle a la variable del tope del stack?");
         Scanner scan = new Scanner(System.in);
-        String a=scan.nextLine();
+        String a=scan.next();
         for(int i=0; i<memoria.size(); i++){
             if(memoria.get(i)==a){
                 memo.add(stack.pop());
@@ -71,20 +63,18 @@ public class Calculadora{
         }
         memoria.add(a);
         memo.add(stack.pop());
+        scan.close();
     }
     public void read(){
         System.out.println("Que variable desea buscar en la memoria?");
         Scanner scan = new Scanner(System.in);
-        String a=scan.nextLine();
         for(int i=0; i<memoria.size(); i++){
-            if(memoria.get(i).equals(a)){
-                int aux = memo.get(i);
-                stack.push(aux);
+            if(memoria.get(i)==a){
+                stack.push(memo.get(i));
                 break;
             }
         }
-    }
-    public int check(){
-        return stack.peek();
+        stack.push(0);
+        scan.close();
     }
 }

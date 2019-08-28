@@ -1,0 +1,35 @@
+1)
+	Herencia de clases: es cuando una clase ej 6 Madre posee mas parametros que otra clase Persona o si Madre formara parte de Persona (esto no 	ocurre en el ej 6). Asi Madre posee los parametros de Persona y ademaas sus parametros especificos ya que todaslas Persona no son Madres 	pero si todas las Madres son Personas.
+
+	Alta cohesión: que cada metodo haga una cosa y no 20 distintas. Para esto se puede separar metodos uno q haga X y otro q haga Y y luego 		juntarlos ej: 	public int sumarGanancias(int valor1,int valor2){				public int promedioGanancias(int valor1,int valor2){
+							return valor1 + valor2							return this.sumarGanacias(int valor1,int valor2)/2
+						}												}
+
+	Bajo acoplamiento: no utilizar muchos metodos juntos ej: metodo.get(met.get.alpha(this.setM(etc)))
+
+	Redefinicion de funciones:redefinir una funcion de una clase "padre" en una clase "hijo" ej: Persona tiene mostrarPersona y Madre tiene 		mostrarPersona redefinida para que muestre ademas de los valores de Persona la empresa e hijos que son valores unicos de Madre.
+
+2)
+	this(): contrusctor de lamisma clase
+	super(): constructor de la clase padre
+	super: hace referencia a un metodo/atrubuto de una clase padre
+	extends: para indicar que la clase es hijo de ...
+	assertTrue(): en los test si lo q hay adentro es true dice que el test esat bien
+	assertFalse(): en los test si lo q hay adentro es false dice que el test esat bien
+	assertEquals(): en los test compara lo q hay adentro y si es igual dice que el test esat bien
+	enum: constructor especial para crear enums (no me acuerdo en nombre,seria como Editorial en el ej 7)
+	import: importas cosas de java (archivos y librerias)
+	package: indica en que carpeta esta
+
+3)
+	package a.b.c;
+
+4)c-
+	1...* = de uno a muchos
+	1...15 = de uno a quince
+	4...0 = de cuatro a cero
+
+  e-
+  	+ public
+  	- private
+  	# protected

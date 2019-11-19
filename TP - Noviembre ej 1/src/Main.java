@@ -18,22 +18,22 @@ public class Main{
             int o = scn.nextInt();
             switch(o){
                 case 1:
-                    animales = nueva_mascota(animales);
+                    animales = nueva_mascota(animales); // crear una nueva mascota
                     break;
                 case 2:
-                    animales = nuevo_dueño(animales);
+                    animales = nuevo_dueño(animales); // cambia el dueño
                     break;
                 case 3:
-                    animales = death(animales);
+                    animales = death(animales); // notifica la defuncion de una mascota
                     break;
                 case 4:
-                    lista(animales);
+                    lista(animales); // muestra todas las mascotas
                     break;
                 case 5:
-                    animales = saludar_main(animales);
+                    animales = saludar_main(animales); // procede a saludar a una mascota
                     break;
                 case 6:
-                    animales = alimentar(animales);
+                    animales = alimentar(animales); // alimenta a una mascota
                     break;
                 default:
                     System.out.println("Error");
@@ -49,13 +49,13 @@ public class Main{
 
     public static ArrayList<Animal> nueva_mascota(ArrayList<Animal> animales){
         Scanner scn = new Scanner(System.in);
-        String xx;
+        String xx; // toda variable "x" es un auxiliar el cual es poco relevante
         System.out.println("Que tipo de animal es la nueva mascota?");
         String x = scn.nextLine();
         System.out.println("Cual es su dueño?");
-        String d = scn.nextLine();
+        String d = scn.nextLine(); // dueño
         System.out.println("Y su nombre?");
-        String n = scn.nextLine();
+        String n = scn.nextLine(); // nombre
         switch (x) {
             case "perro": {
                 Animal animal_nuevo = new Perro(n, d);
@@ -95,9 +95,9 @@ public class Main{
     public static ArrayList<Animal> nuevo_dueño(ArrayList<Animal> animales){
         Scanner scn = new Scanner(System.in);
         System.out.println("Quien cambio su dueño?");
-        String s = scn.nextLine();
+        String x = scn.nextLine();
         for(int i=0; i!=animales.size(); i++){
-            if(animales.get(i).getnombre().equals(s)){
+            if(animales.get(i).getnombre().equals(x)){
                 System.out.println("Cual es el nuevo dueño?");
                 animales.get(i).setdueño(scn.nextLine());
             }
@@ -108,9 +108,9 @@ public class Main{
     public static ArrayList<Animal> death(ArrayList<Animal> animales){
         Scanner scn = new Scanner(System.in);
         System.out.println("Quien murio?");
-        String s = scn.nextLine();
+        String x = scn.nextLine();
         for(int i=0; i!=animales.size(); i++){
-            if(animales.get(i).getnombre().equals(s)){
+            if(animales.get(i).getnombre().equals(x)){
                 animales.remove(i);
             }
         }

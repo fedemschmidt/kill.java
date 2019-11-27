@@ -6,8 +6,8 @@ public class Generala{
     int xxx;
     int xxxx;
     String sx;
-    int[] d = {0,0,0,0,0};
-    Boolean[] bd = {false,false,false,false,false};
+    int[] d = {0,0,0,0,0}; //dados
+    Boolean[] bd = {false,false,false,false,false}; //bloquear dados
     Cosa[] tabla = new Cosa[10];
     Scanner scn = new Scanner(System.in);
 
